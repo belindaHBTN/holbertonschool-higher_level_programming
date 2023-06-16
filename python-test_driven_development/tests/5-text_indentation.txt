@@ -30,3 +30,23 @@ Passing Nothing
     Traceback (most recent call last):
         ...
     TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Passing a simple text
+    >>> text_indentation("Holberton School")
+    Holberton School
+
+Passing a text without space
+    >>> text_indentation("Holberton.School")
+    Holberton.
+    <BLANKLINE>
+    School
+
+Passing a text with more than one space
+    >>> text_indentation("Holberton. School? How are you:    John")
+    Holberton.
+    <BLANKLINE>
+    School?
+    <BLANKLINE>
+    How are you:
+    <BLANKLINE>
+    John

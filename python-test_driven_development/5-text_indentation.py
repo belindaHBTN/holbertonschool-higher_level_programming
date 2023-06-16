@@ -18,10 +18,12 @@ def text_indentation(text):
     Raises:
     TypeError: If the argument is not an string
     """
-
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    text = text.replace(". ", ".\n\n").replace("? ", "?\n\n")
-    text = text.replace(": ", ":\n\n")
-    print(f"{text}")
+    text = text.replace(".", ".\n\n").replace("?", "?\n\n")
+    text = text.replace(":", ":\n\n")
+    words = text.split("\n")
+
+    for word in words:
+        print(f"{word.strip()}")

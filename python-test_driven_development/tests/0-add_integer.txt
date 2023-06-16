@@ -57,7 +57,7 @@ Passing a tuple
     TypeError: a must be an integer
 
 Passing a floating-point value that exceeds the max range
-    >>> add_integer(1.7976931348623157e+308)
+    >>> add_integer(1.7976931348623157e+308 * 2)
     Traceback (most recent call last):
         ...
     OverflowError: cannot convert float infinity to integer

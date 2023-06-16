@@ -1,0 +1,32 @@
+5-text_indentation.txt
+===============================
+The "5-text_indentation" module
+===============================
+
+Use ``text_indentation`` function
+-------
+
+Import function from module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Passing a text
+    >>> text_indentation("""Lorem ipsum? dolor amet, consectetur: adipiscing ruinas. videres""")
+    Lorem ipsum?
+    <BLANKLINE>
+    dolor amet, consectetur:
+    <BLANKLINE>
+    adipiscing ruinas.
+    <BLANKLINE>
+    videres
+
+Passing an integer
+    >>> text_indentation(4)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Passing Nothing
+    >>> text_indentation()
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'

@@ -1,0 +1,36 @@
+3-say_my_name.txt
+===============================
+The "3-say_my_name" module
+===============================
+
+Use ``say_my_name`` function
+-------
+
+Import function from module:
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Passing two strings as two arguments
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+Passing only one string as the first argument
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+passing an integer as the first argument and a string as the second argument
+    >>> say_my_name(12, "White")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+passing a string as the first argument and an integer as the second argument
+    >>> say_my_name("Bob", 12)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+passing nothing
+    >>> say_my_name()
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'

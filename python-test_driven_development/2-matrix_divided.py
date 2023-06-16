@@ -47,6 +47,9 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
+    if div == float('inf'):
+        return list(map(lambda row: list(map(lambda num: 0.0, row)), matrix))
+
     return list(map(
         lambda row: list(map(
             lambda num: round(num / div, 2), row)), matrix))

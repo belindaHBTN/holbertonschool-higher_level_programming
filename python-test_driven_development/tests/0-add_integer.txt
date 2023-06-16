@@ -56,3 +56,14 @@ Passing a tuple
         ...
     TypeError: a must be an integer
 
+Passing a floating-point value that exceeds the max range
+    >>> add_integer(1.7976931348623157e+308)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+Passing float NaN
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer

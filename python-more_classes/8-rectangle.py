@@ -108,6 +108,16 @@ class Rectangle:
     def bigger_or_equal(rect_1, rect_2):
         """
             Method that return the bigger rectangle
+
+            Args:
+                rect_1: the first instance of Rectangle class
+                rect_2: the second instance of Rectangle class
+
+            Raises:
+                TypeError: when the it's not the instance of Rectangle
+
+            Return:
+                The biggest instance of Rectangle
         """
         if not isinstance(rect_1, Ractangle):
             raise TypeError("rect_1 must be an instance of Rectangle")

@@ -84,4 +84,4 @@ class Rectangle:
             for j in range(self.width):
                 rectangle = rectangle + "#"
             rectangle = rectangle + "\n"
-        return rectangle
+        return rectangle[:-1]

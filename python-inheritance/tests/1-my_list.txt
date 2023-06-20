@@ -1,0 +1,40 @@
+1-my_list.txt
+===============================
+Test for the "1-my_list.py" module
+===============================
+
+Import class from module:
+    >>> MyList = __import__('1-my_list').MyList
+
+Create an instance for testing
+    >>> my_list = MyList()
+
+
+test1: is my_list a instance of MyList?
+    >>> isinstance(my_list, MyList)
+    True
+
+test2: is MyList a subclass from list class?
+    >>> issubclass(MyList, list)
+    True
+
+test3: if the my_list is an empty list at the beginning?
+    >>> print(my_list)
+    []
+
+test4: append some integers, see if we are in the list?
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+test5: if the sorted function is working?
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+test6: if the original list has been changed after invoking the function
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]

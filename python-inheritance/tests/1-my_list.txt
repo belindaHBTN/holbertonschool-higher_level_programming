@@ -38,3 +38,9 @@ test5: if the sorted function is working?
 test6: if the original list has been changed after invoking the function
     >>> print(my_list)
     [1, 4, 2, 3, 5]
+
+test7: for negative number
+    >>> test_list = MyList([3, -1, 2, -7])
+    >>> test_list.print_sorted()
+    [-7, -1, 2, 3]
+

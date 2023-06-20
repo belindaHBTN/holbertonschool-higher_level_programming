@@ -44,3 +44,7 @@ test7: for negative number
     >>> test_list.print_sorted()
     [-7, -1, 2, 3]
 
+test 8: missing argument
+    >>> test_list = MyList([])
+    >>> test_list.print_sorted()
+    []

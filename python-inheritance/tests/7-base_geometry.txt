@@ -52,8 +52,8 @@ test8: if no argument has been passed
         ...
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-test9: if three arguments have been passed
-    >>> bg.integer_validator("my_int", 1, 2)
+test9: if pass None as value
+    >>> bg.integer_validator("my_int", None)
     Traceback (most recent call last):
         ...
-    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+    TypeError: my_int must be an integer

@@ -1,0 +1,41 @@
+7-base_geometry.txt
+===============================
+Test for the "7-base_geometry.py" module
+===============================
+
+Bring in "BaseGeometry":
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Create an instance for testing
+    >>> bg = BaseGeometry()
+
+test1: is bg an instance of BaseGeometry?
+    >>> isinstance(bg, BaseGeometry)
+    True
+
+test2: if the area method can raise an Exception
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
+test3: if the value is an integer
+    >>> bg.integer_validator("my_int", 12)
+
+test4: if value is a string
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+test5: if value is 0
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: age must be greater than 0
+
+test6: if value is negative number
+    >>> bg.integer_validator("distance", -4)
+    Traceback (most recent call last):
+        ...
+    ValueError: distance must be greater than 0

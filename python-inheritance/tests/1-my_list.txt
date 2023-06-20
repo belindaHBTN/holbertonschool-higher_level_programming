@@ -3,7 +3,7 @@
 Test for the "1-my_list.py" module
 ===============================
 
-Import class from module:
+Bring in "MyList":
     >>> MyList = __import__('1-my_list').MyList
 
 Create an instance for testing
@@ -38,5 +38,3 @@ test5: if the sorted function is working?
 test6: if the original list has been changed after invoking the function
     >>> print(my_list)
     [1, 4, 2, 3, 5]
-
-test

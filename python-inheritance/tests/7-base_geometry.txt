@@ -57,3 +57,9 @@ test9: if pass None as value
     Traceback (most recent call last):
         ...
     TypeError: my_int must be an integer
+
+test10: if pass NaN as value
+    >>> bg.integer_validator("my_int", NaN)
+    Traceback (most recent call last):
+        ...
+    NameError: name 'NaN' is not defined

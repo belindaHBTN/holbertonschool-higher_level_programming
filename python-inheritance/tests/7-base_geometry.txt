@@ -58,8 +58,26 @@ test9: if pass None as value
         ...
     TypeError: my_int must be an integer
 
-test10: if pass NaN as value
-    >>> bg.integer_validator("my_int", NaN)
+test10: if pass directory as value
+    >>> bg.integer_validator("my_int", {1, 2, 3})
     Traceback (most recent call last):
         ...
-    NameError: name 'NaN' is not defined
+    TypeError: my_int must be an integer
+
+test11: if pass list as value
+    >>> bg.integer_validator("my_int", [1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: my_int must be an integer
+
+test12: if pass tuple as value
+    >>> bg.integer_validator("my_int", (1, 2, 3))
+    Traceback (most recent call last):
+        ...
+    TypeError: my_int must be an integer
+
+test13: if pass boolean as value
+    >>> bg.integer_validator("my_int", True)
+    Traceback (most recent call last):
+        ...
+    TypeError: my_int must be an integer

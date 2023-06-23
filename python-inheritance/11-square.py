@@ -87,4 +87,4 @@ class Square(Rectangle):
         """
             Method to generate output for end user
         """
-        return f"[Rectangle] {self.__size}/{self.__size}"
+        return f"[Square] {self.__size}/{self.__size}"

@@ -5,9 +5,7 @@
 
 
 def pascal_triangle(n):
-    """ Function that returns a list of lists of integers representing the
-    Pascal’s triangle of n
-
+    """Pascal tringle of size n
     Args:
         n: lines of inner lists
 
@@ -17,7 +15,8 @@ def pascal_triangle(n):
     outer_list = []
     if n <= 0:
         return outer_list
-    outer_list =[[1]]
+
+    outer_list = [[1]]
 
     for i in range(1, n):
         inner_list = [1]

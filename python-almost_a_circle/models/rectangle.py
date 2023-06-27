@@ -1,4 +1,4 @@
-#!/urs/bin/python3
+#!/usr/bin/python3
 
 """
     This module include a Rectangle class

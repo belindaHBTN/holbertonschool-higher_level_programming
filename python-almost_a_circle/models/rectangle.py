@@ -111,5 +111,5 @@ class Rectangle(Base):
         """
             print out specific content
         """
-        return f"[Rectangle] {(self.id)} {self.x}/{self.y}" \
-        f" - {self.width}/{self.height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y}" \
+            f" - {self.width}/{self.height}"

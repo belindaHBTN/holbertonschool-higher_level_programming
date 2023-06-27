@@ -7,6 +7,9 @@ from models.base import Base
 
 class TestBase(unittest.TestCase):
     """test class"""
+    def setUp(self):
+        Base.__nb_objects = 0
+
     def test_no_id(self):
         """test default id, no prameter """
         b1 = Base()
@@ -14,16 +17,17 @@ class TestBase(unittest.TestCase):
 
     def test_with_id(self):
         """test id with value been pasted in"""
-        b2 = Base(12)
-        self.assertEqual(b2.id, 12)
+        b1 = Base(12)
+        self.assertEqual(b1.id, 12)
 
     def test_increment_id(self):
         """test id increment"""
         b1 = Base()
         self.assertEqual(b1.id, 1)
-        b2 = Base()
-        self.assertEqual(b2.id, 2)
-        b3 = Base(12)
-        self.assertEqual(b3.id, 12)
-        b4 = Base()
-        self.assertEqual(b4.id, 3)
+        b2 = Base(12)
+        self.assertEqual(b2.id, 12)
+        b3 = Base()
+        self.assertEqual(b3.id, 2)
+
+    def tearDown(self):
+        pass

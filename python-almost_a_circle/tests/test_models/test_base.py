@@ -7,9 +7,6 @@ from models.base import Base
 
 class TestBase(unittest.TestCase):
     """test class"""
-    def setUp(self):
-        Base.__nb_objects = 0
-
     def test_no_id(self):
         """test default id, no prameter """
         b1 = Base()
@@ -28,6 +25,3 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b2.id, 12)
         b3 = Base()
         self.assertEqual(b3.id, 2)
-
-    def tearDown(self):
-        pass

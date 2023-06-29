@@ -3,6 +3,7 @@
 """
     This is a module contain a Base class
 """
+import json
 
 
 class Base:

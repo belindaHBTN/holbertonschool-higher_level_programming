@@ -79,6 +79,13 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = sys.__stdout__
         self.assertEqual(printed_output, expected_output)
 
+    def test_str(self):
+        """test the str method"""
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual(r1.__str__(), "[Rectangle] (12) 2/1 - 4/6")
+        r2 = Rectangle(5, 5, 1)
+        self.assertEqual(r2.__str__(), "[Rectangle] (1) 1/0 - 5/5")
+
     def tearDown(self):
         """clean up the class private attribute"""
         Base._Base__nb_objects = None

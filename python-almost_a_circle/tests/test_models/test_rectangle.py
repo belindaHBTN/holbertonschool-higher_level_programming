@@ -4,6 +4,7 @@
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
+from io import StringIO
 
 
 class TestRectangle(unittest.TestCase):
@@ -65,6 +66,18 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.area(), 6)
         r2 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r2.area(), 56)
+
+    def test_print(self):
+        """test the rectangle instance's print out'"""
+        r1 = Rectangle(2, 3)
+        output = StringIO()
+        expected_output = "##\n##\n##\n"
+        import sys
+        sys.stdout = output
+        r1.display()
+        printed_output = output.getvalue()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(printed_output, expected_output)
 
     def tearDown(self):
         """clean up the class private attribute"""

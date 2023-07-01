@@ -59,6 +59,13 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             r10 = Rectangle(10, 2, 3, -4)
 
+    def test_area(self):
+        """test the area method of the instance of rectangle class"""
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+        r2 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r2.area(), 56)
+
     def tearDown(self):
         """clean up the class private attribute"""
         Base._Base__nb_objects = None

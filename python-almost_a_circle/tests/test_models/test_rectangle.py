@@ -2,6 +2,7 @@
 
 """Module for testing Rectangle class"""
 import unittest
+import os
 from models.base import Base
 from models.rectangle import Rectangle
 from io import StringIO
@@ -133,6 +134,21 @@ class TestRectangle(unittest.TestCase):
         r1_dict = r1.to_dictionary()
         r1_dict_exp = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
         self.assertEqual(r1_dict, r1_dict_exp)
+
+    def test_save_to_file_rec(self):
+        Rectangle.save_to_file(None)
+        self.assertTrue(os.path.exists("Rectangle.json"))
+        os.remove("Rectangle.json")
+
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r", encoding='utf-8') as e_file:
+            self.assertEqual(e_file.read(), "[]")
+            os.remove("Rectangle.json")
+
+        Rectangle.save_to_file([Rectangle(10, 7, 2, 8)])
+        str_exp = '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}]'
+        with open("Rectangle.json", "r", encoding='utf-8') as a_file:
+            self.assertEqual(a_file.read(), str_exp)
 
     def tearDown(self):
         """clean up the class private attribute"""

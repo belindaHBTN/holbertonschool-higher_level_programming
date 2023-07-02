@@ -121,3 +121,33 @@ class TestSquare(unittest.TestCase):
         self.assertTrue(isinstance(from_json[0], dict))
         self.assertEqual(Square.from_json_string(None), [])
         self.assertEqual(Square.from_json_string("[]"), [])
+
+    def test_create(self):
+        """ Test create method """
+        dictionary = {'id': 89}
+        s1 = Square.create(**dictionary)
+        self.assertEqual(s1.id, 89)
+
+    def test_create_2(self):
+        """ Test create method """
+        dictionary = {'id': 89, 'size': 1}
+        s1 = Square.create(**dictionary)
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+
+    def test_create_3(self):
+        """ Test create method """
+        dictionary = {'id': 89, 'size': 1, 'x': 2}
+        s1 = Square.create(**dictionary)
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+        self.assertEqual(s1.x, 2)
+
+    def test_create_4(self):
+        """ Test create method """
+        dictionary = {'id': 89, 'size': 1, 'x': 2, 'y': 3}
+        s1 = Square.create(**dictionary)
+        self.assertEqual(s1.id, 89)
+        self.assertEqual(s1.size, 1)
+        self.assertEqual(s1.x, 2)
+        self.assertEqual(s1.y, 3)

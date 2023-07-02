@@ -67,7 +67,7 @@ class TestRectangle(unittest.TestCase):
         r2 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r2.area(), 56)
 
-    def test_print(self):
+    def test_print1(self):
         """test the rectangle instance's print out'"""
         r1 = Rectangle(2, 3)
         output = StringIO()
@@ -75,6 +75,18 @@ class TestRectangle(unittest.TestCase):
         import sys
         sys.stdout = output
         r1.display()
+        printed_output = output.getvalue()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(printed_output, expected_output)
+
+    def test_print2(self):
+        """test the rectangle instance's print out'"""
+        r2 = Rectangle(2, 3, 2, 2)
+        output = StringIO()
+        expected_output = "\n\n  ##\n  ##\n  ##\n"
+        import sys
+        sys.stdout = output
+        r2.display()
         printed_output = output.getvalue()
         sys.stdout = sys.__stdout__
         self.assertEqual(printed_output, expected_output)

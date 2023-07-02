@@ -155,6 +155,17 @@ class TestRectangle(unittest.TestCase):
         with open("Rectangle.json", "r", encoding='utf-8') as a_file:
             self.assertEqual(a_file.read(), str_exp)
 
+    def test_from_json(self):
+        """test the from json string method"""
+        r1 = Rectangle(1,2)
+        li = [r1.to_dictionary()]
+        json_list_input = Rectangle.to_json_string(li)
+        from_json = Rectangle.from_json_string(json_list_input)
+        self.assertTrue(isinstance(from_json, list))
+        self.assertTrue(isinstance(from_json[0], dict))
+        self.assertEqual(Rectangle.from_json_string(None), [])
+        self.assertEqual(Rectangle.from_json_string("[]"), [])
+
     def tearDown(self):
         """clean up the class private attribute"""
         Base._Base__nb_objects = None

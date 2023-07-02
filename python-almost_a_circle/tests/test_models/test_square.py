@@ -110,3 +110,14 @@ class TestSquare(unittest.TestCase):
         str_exp = '[{"id": 1, "size": 10, "x": 2, "y": 8}]'
         with open("Square.json", "r", encoding='utf-8') as a_file:
             self.assertEqual(a_file.read(), str_exp )
+
+    def test_from_json(self):
+        """test the from json string method"""
+        s1 = Square(1,2)
+        li = [s1.to_dictionary()]
+        json_list_input = Square.to_json_string(li)
+        from_json = Square.from_json_string(json_list_input)
+        self.assertTrue(isinstance(from_json, list))
+        self.assertTrue(isinstance(from_json[0], dict))
+        self.assertEqual(Square.from_json_string(None), [])
+        self.assertEqual(Square.from_json_string("[]"), [])

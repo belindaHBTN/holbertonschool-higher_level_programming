@@ -53,3 +53,12 @@ class TestSquare(unittest.TestCase):
         """test the str method"""
         s1 = Square(3, 1, 3)
         self.assertEqual(s1.__str__(), "[Square] (1) 1/3 - 3")
+
+    def test_size(self):
+        """test the getter and setter of size attribute"""
+        s1 = Square(5)
+        self.assertEqual(s1.size, 5)
+        with self.assertRaises(TypeError):
+            s1.size = "9"
+        with self.assertRaises(ValueError):
+            s1.size = -1

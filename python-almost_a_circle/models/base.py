@@ -4,6 +4,7 @@
     This is a module contain a Base class
 """
 import json
+import os
 
 
 class Base:
@@ -71,3 +72,20 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        file_name = "{}.json".format(cls.__name__)
+        if not os.path.exists(file_name):
+            return []
+
+        with open(file_name, "r", encoding="utf-8") as a_file:
+            json_str = a_file.read()
+        list_input = Base.from_json_string(json_str)
+
+        list_ins = []
+        for obj in list_input:
+            instance = cls.create(**obj)
+            list_ins.append(instance)
+        return list_ins

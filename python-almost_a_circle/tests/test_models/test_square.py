@@ -62,3 +62,26 @@ class TestSquare(unittest.TestCase):
             s1.size = "9"
         with self.assertRaises(ValueError):
             s1.size = -1
+
+    def test_update(self):
+        """test update method"""
+        s1 = Square(5)
+        self.assertEqual(s1.__str__(), "[Square] (1) 0/0 - 5")
+        s1.update()
+        self.assertEqual(s1.__str__(), "[Square] (1) 0/0 - 5")
+        s1.update(89)
+        self.assertEqual(s1.__str__(), "[Square] (89) 0/0 - 5")
+        s1.update(89, 1)
+        self.assertEqual(s1.__str__(), "[Square] (89) 0/0 - 1")
+        s1.update(89, 1, 2)
+        self.assertEqual(s1.__str__(), "[Square] (89) 2/0 - 1")
+        s1.update(89, 1, 2, 3)
+        self.assertEqual(s1.__str__(), "[Square] (89) 2/3 - 1")
+        s1.update(id=98)
+        self.assertEqual(s1.__str__(), "[Square] (98) 2/3 - 1")
+        s1.update(id=98, y=20)
+        self.assertEqual(s1.__str__(), "[Square] (98) 2/20 - 1")
+        s1.update(id=98, y=20, size=15)
+        self.assertEqual(s1.__str__(), "[Square] (98) 2/20 - 15")
+        s1.update(id=98, y=20, size=15, x=3)
+        self.assertEqual(s1.__str__(), "[Square] (98) 3/20 - 15")

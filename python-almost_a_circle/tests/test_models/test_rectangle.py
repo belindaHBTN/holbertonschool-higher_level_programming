@@ -126,6 +126,14 @@ class TestRectangle(unittest.TestCase):
         r2.update(x=1, height=2, y=3, width=4)
         self.assertEqual(r2.__str__(), "[Rectangle] (89) 1/3 - 4/2")
 
+    def test_to_dictionary(self):
+        """test to dictionary method"""
+        r1 = Rectangle(10, 2, 1, 9)
+        self.assertEqual(r1.__str__(), "[Rectangle] (1) 1/9 - 10/2")
+        r1_dict = r1.to_dictionary()
+        r1_dict_exp = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(r1_dict, r1_dict_exp)
+
     def tearDown(self):
         """clean up the class private attribute"""
         Base._Base__nb_objects = None

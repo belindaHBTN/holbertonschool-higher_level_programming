@@ -2,6 +2,7 @@
 
 """Module for testing Square class"""
 import unittest
+import os
 from models.square import Square
 from models.base import Base
 
@@ -92,3 +93,20 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.__str__(), "[Square] (1) 2/1 - 10")
         s1_dict = s1.to_dictionary()
         self.assertEqual(s1_dict, {'id': 1, 'x': 2, 'size': 10, 'y': 1})
+
+    def test_save_to_file_None(self):
+        Square.save_to_file(None)
+        self.assertTrue(os.path.exists("Square.json"))
+        os.remove("Square.json")
+
+    def test_save_to_file_empty(self):
+        Square.save_to_file([])
+        with open("Square.json", "r", encoding='utf-8') as e_file:
+            self.assertEqual(e_file.read(), "[]")
+            os.remove("Square.json")
+
+    def test_save_to_file_normal(self):
+        Square.save_to_file([Square(10, 2, 8)])
+        str_exp = '[{"id": 1, "size": 10, "x": 2, "y": 8}]'
+        with open("Square.json", "r", encoding='utf-8') as a_file:
+            self.assertEqual(a_file.read(), str_exp )

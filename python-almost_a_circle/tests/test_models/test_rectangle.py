@@ -135,16 +135,21 @@ class TestRectangle(unittest.TestCase):
         r1_dict_exp = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
         self.assertEqual(r1_dict, r1_dict_exp)
 
-    def test_save_to_file_rec(self):
+    def test_save_to_file_None(self):
+        """test save to file None"""
         Rectangle.save_to_file(None)
         self.assertTrue(os.path.exists("Rectangle.json"))
         os.remove("Rectangle.json")
 
+    def test_save_to_file_empty(self):
+        """test save to file empty"""
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r", encoding='utf-8') as e_file:
             self.assertEqual(e_file.read(), "[]")
             os.remove("Rectangle.json")
 
+    def test_save_to_file_normal(self):
+        """test save to file"""
         Rectangle.save_to_file([Rectangle(10, 7, 2, 8)])
         str_exp = '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}]'
         with open("Rectangle.json", "r", encoding='utf-8') as a_file:

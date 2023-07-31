@@ -17,8 +17,8 @@ def get_state(username, password, db_name, search_name):
     cursor = db.cursor()
 
     cursor.execute(
-            "SELECT id, name FROM states\
-                    WHERE name='{}' ORDER BY id;".format(search_name)
+            "SELECT id, name FROM states WHERE name LIKE BINARY '{}'\
+                    ORDER BY id;".format(search_name)
     )
     rows = cursor.fetchall()
     for row in rows:

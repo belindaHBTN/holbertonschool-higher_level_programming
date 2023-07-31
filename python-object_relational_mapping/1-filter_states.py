@@ -17,7 +17,8 @@ def get_state(username, password, db_name):
     cursor = db.cursor()
 
     cursor.execute(
-            "SELECT id, name FROM states WHERE name REGEXP '^N' ORDER BY id;"
+            "SELECT id, name FROM states\
+                    WHERE name LIKE BINARY 'N%' ORDER BY id;"
     )
     rows = cursor.fetchall()
     for row in rows:

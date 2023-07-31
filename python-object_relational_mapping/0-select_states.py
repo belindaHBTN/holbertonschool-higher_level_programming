@@ -9,7 +9,7 @@ def get_state(username, password, db_name):
     db = MySQLdb.connect(host='localhost', user=username, passwd=password, port=3306, db=db_name)
     cursor = db.cursor()
 
-    cursor.execute("SELECT id, name FROM states ORDER BY id ASC")
+    cursor.execute("SELECT id, name FROM states ORDER BY id;")
     rows = cursor.fetchall()
     for row in rows:
         print(row)

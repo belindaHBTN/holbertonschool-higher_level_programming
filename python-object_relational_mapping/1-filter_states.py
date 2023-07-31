@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Lists all states from the database"""
+"""Lists all states with a name starting with N (upper N) from the database"""
 
 import MySQLdb
 from sys import argv
@@ -16,7 +16,9 @@ def get_state(username, password, db_name):
     )
     cursor = db.cursor()
 
-    cursor.execute("SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id;")
+    cursor.execute(
+            "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id;"
+    )
     rows = cursor.fetchall()
     for row in rows:
         print(row)

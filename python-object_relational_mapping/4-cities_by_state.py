@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Lists all values in the states table where name match arg"""
+"""List all cities from the databases"""
 
 import MySQLdb
 from sys import argv
 
 
 def get_state(username, password, db_name):
-    """Lists all values in the states table where name match arg"""
+    """List all cities from the databases"""
     db = MySQLdb.connect(
             host='localhost',
             user=username,

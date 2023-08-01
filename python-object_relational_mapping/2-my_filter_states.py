@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Lists all values in the states table where name match arg"""
+"""Display all values in states table that matche the search name"""
 
 import MySQLdb
 from sys import argv
 
 
 def get_state(username, password, db_name, search_name):
-    """Lists all values in the states table where name match arg"""
+    """Display all values in states table that matche the search name"""
     db = MySQLdb.connect(
             host='localhost',
             user=username,

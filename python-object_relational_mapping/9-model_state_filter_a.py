@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""a script that prints the first State object from the database hbtn_0e_6_usa
-"""
+"""List all State objects that contain the letter a from db"""
 
 from sys import argv
 from sqlalchemy import create_engine

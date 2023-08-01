@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""Lists all values in the states table where name match arg"""
+"""A safer script that takes in arguments adn displays all values in the\
+states table where name matvhes the arguments, with MySQL injection free"""
 
 import MySQLdb
 from sys import argv
 
 
 def get_state(username, password, db_name, search_name):
-    """Lists all values in the states table where name match arg"""
+    """connect to server and do query thing"""
     db = MySQLdb.connect(
             host='localhost',
             user=username,
